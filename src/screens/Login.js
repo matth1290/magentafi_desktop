@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-// import { getAccountInfo } from "../solana/wallet"
 
 function Login(props) {
     const alreadyLoggedIn = async () => {
@@ -22,8 +21,6 @@ function Login(props) {
                 loginProvider: "google",
             });
             if (props.openlogin.privKey) {
-                // const kp = await getAccountInfo(props.openlogin.privKey);
-                // console.log(kp)
                 props.setLoggedIn(true);
             } else {
                 throw new Error('Login Error: Invalid Login')
