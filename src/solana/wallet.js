@@ -1,13 +1,6 @@
-// import { 
-//     Connection, 
-//     clusterApiUrl, 
-//     LAMPORTS_PER_SOL,
-//     Keypair,
-//     PublicKey,
-  
-// } from "@solana/web3.js";
+import * as solanaWeb3 from '@solana/web3.js';
 
-// import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
+import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
 
 // const networks = {
 // mainnet: {
@@ -19,23 +12,18 @@
 // };
 
 // const solanaNetwork = networks.devnet;
-// const connection = new Connection(solanaNetwork.url);
+// const connection = new solanaWeb3.Connection(solanaNetwork.url);
 
-// const publicKeyFromString = (publicKeyString) => {
-//     return new PublicKey(publicKeyString);
-// };
 
-// const getAccountInfo = async (privateKey) => {
-//     try {
-//         //convert key from string to uint8 array
-//         const seed = Uint8Array.from(privateKey).slice(0, 32);
-//         const account = Keypair.fromSeed(seed);
-//         return account;
-//     } catch (e) {
-//         console.error(e);
-//     }
-// };
+async function getAccountInfo(privateKey) {
+    try {
+        //convert key from string to uint8 array
+        const seed = Uint8Array.from(privateKey).slice(0, 32);
+        const account = solanaWeb3.Keypair.fromSeed(seed);
+        return account;
+    } catch (e) {
+        console.error(e);
+    }
+};
 
-// export {
-//     getAccountInfo
-// }
+export default getAccountInfo;
