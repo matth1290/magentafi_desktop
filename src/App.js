@@ -4,6 +4,7 @@ import OpenLogin from "@toruslabs/openlogin";
 import './App.css';
 import Login from './screens/Login';
 import Landing from './screens/Landing';
+import { BrowserRouter, Route, Routes, Redirect } from 'react-router-dom';
 
 function App() {
   console.log(process.env)
@@ -15,7 +16,13 @@ function App() {
     )
   } else {
     return (
-      <Login setLoggedIn={setLoggedIn} openlogin={openlogin} />
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path='/' element={<Login setLoggedIn={setLoggedIn} openlogin={openlogin} />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     )
   }
 }

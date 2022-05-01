@@ -6,11 +6,15 @@ function Landing(props) {
     const [loading, setLoading] = useState(true);
     const [kp, setKP] = useState(null);
     const initLoginObj = async () => {
-        await props.openlogin.init();
-        const seed = Uint8Array.from(props.openlogin.privKey).slice(0, 32);
-        const account = solanaWeb3.Keypair.fromSeed(seed);
-        setKP(account)
-        setLoading(false);
+        try {
+            await props.openlogin.init();
+            const seed = Uint8Array.from(props.openlogin.privKey).slice(0, 32);
+            const account = solanaWeb3.Keypair.fromSeed(seed);
+            setKP(account)
+            setLoading(false);
+        } catch (error) {
+            console.error(error)
+        }
     }
     useEffect( () => {
         initLoginObj();
