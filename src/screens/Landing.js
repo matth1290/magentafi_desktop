@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as solanaWeb3 from '@solana/web3.js';
+import { test } from "../api/backend";
 
 
 function Landing(props) {
@@ -11,6 +12,7 @@ function Landing(props) {
             const seed = Uint8Array.from(props.openlogin.privKey).slice(0, 32);
             const account = solanaWeb3.Keypair.fromSeed(seed);
             setKP(account)
+            await test()
             setLoading(false);
         } catch (error) {
             console.error(error)
