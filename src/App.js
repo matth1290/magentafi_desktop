@@ -13,8 +13,8 @@ function App() {
   const openlogin = new OpenLogin({ clientId: process.env.REACT_APP_OL_UID, network: "mainnet"});
   if (loggedIn) {
     return (
-      <Landing setLoggedIn={setLoggedIn} openlogin={openlogin} />
-      // <Payroll />
+      // <Landing setLoggedIn={setLoggedIn} openlogin={openlogin} />
+      <Payroll />
     )
   } else {
     return (
