@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import Modal from 'react-modal';
-import ReactDOM from 'react-dom';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 function Payroll(props) {
     const [modalIsOpen, setIsOpen] = useState(false);
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
     
     useEffect(() => {
        
@@ -53,12 +57,25 @@ function Payroll(props) {
                         <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
                     </label>
                     <label>
-                        Date Begin
-                        <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
+                        Start Date:
+                    <DatePicker
+                        selected={startDate}
+                        selectsStart
+                        startDate={startDate}
+                        endDate={endDate}
+                        onChange={date => setStartDate(date)}
+                    />
                     </label>
                     <label>
-                        Date End
-                        <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
+                        End Date:
+                    <DatePicker
+                        selected={endDate}
+                        selectsEnd
+                        startDate={startDate}
+                        endDate={endDate}
+                        minDate={startDate}
+                        onChange={date => setEndDate(date)}
+                    />
                     </label>
                 <input type="submit" value="Submit" onSubmit={submitForm}/> 
                 </form>
