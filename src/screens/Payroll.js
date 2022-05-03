@@ -41,7 +41,23 @@ function Payroll(props) {
                 <form>
                     <h1>Create New Payment</h1>
                     <label>
-                        Name:
+                        Recipient Name
+                        <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
+                    </label>
+                    <label>
+                        Recipient Wallet Address
+                        <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
+                    </label>
+                    <label>
+                        Amount
+                        <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
+                    </label>
+                    <label>
+                        Date Begin
+                        <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
+                    </label>
+                    <label>
+                        Date End
                         <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
                     </label>
                 <input type="submit" value="Submit" onSubmit={submitForm}/> 

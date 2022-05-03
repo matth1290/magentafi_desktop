@@ -23,6 +23,7 @@ function App() {
       </BrowserRouter>
       
       // <Payroll />
+      // <Landing setLoggedIn={setLoggedIn} openlogin={openlogin} />
     )
   } else {
     return (
