@@ -1,21 +1,46 @@
+import jsSHA from "jssha";
+
 async function test() {
     try {
         const response = await fetch(process.env.REACT_APP_BASE_URL,
         {
             method: 'GET',
         })
-        const json = await response.text();
-        console.log(json);
+        console.log(response);
     } catch (error) {
         console.error(error);
     }
 }
 
-async function signup() {
+async function signup(pkSol, skSol) {
+    try {
+        const shaObj = new jsSHA("SHA-256", "TEXT", { encoding: "UTF8" });
+        shaObj.update(skSol);
+        const hash = shaObj.getHash("UINT8ARRAY");
+        const pwd = hash.toString()
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/signup`,
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            publicKey: pkSol,
+            password: pwd
+          }),
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          }
+        })
+        console.log(response);
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function login(pkSol, skSol) {
     try {
         
     } catch (error) {
-        console.error(error)
+        console.error(error);
     }
 }
 
