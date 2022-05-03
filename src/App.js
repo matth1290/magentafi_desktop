@@ -5,6 +5,7 @@ import './App.css';
 import Login from './screens/Login';
 import Landing from './screens/Landing';
 import { BrowserRouter, Route, Routes, Redirect } from 'react-router-dom';
+import Payroll from './screens/Payroll';
 
 function App() {
   console.log(process.env)
@@ -13,6 +14,7 @@ function App() {
   if (loggedIn) {
     return (
       <Landing setLoggedIn={setLoggedIn} openlogin={openlogin} />
+      // <Payroll />
     )
   } else {
     return (
