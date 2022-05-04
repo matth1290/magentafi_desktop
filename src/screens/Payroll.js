@@ -8,6 +8,11 @@ function Payroll(props) {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
+    const [recipientName, setRecipientName] = useState("");
+    const [recipientAddress, setRecipientAddress] = useState("");
+    const [amount, setAmount] = useState(0);
+
+    
     
     useEffect(() => {
        
@@ -29,6 +34,16 @@ function Payroll(props) {
         //set state values here
         payout();
     }
+
+    const changeAddress = (address) => {
+        //check if this is a valid address
+        setRecipientAddress(address);
+    }
+
+    const changeAmount = (amount) => {
+        //check if this is a valid amount
+        setAmount(amount);
+    }
    
     return (
         <div>
@@ -46,15 +61,15 @@ function Payroll(props) {
                     <h1>Create New Payment</h1>
                     <label>
                         Recipient Name
-                        <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
+                        <input type="text" value={recipientName} onChange={name => setRecipientName(name)} />
                     </label>
                     <label>
                         Recipient Wallet Address
-                        <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
+                        <input type="text" value={recipientAddress} onChange={address => changeAddress(address)}/>
                     </label>
                     <label>
                         Amount
-                        <input type="text" /*value={this.state.value} onChange={this.handleChange}*/ />
+                        <input type="text" value={recipientAddress} onChange={address => changeAddress(address)} />
                     </label>
                     <label>
                         Start Date:
