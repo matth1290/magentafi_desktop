@@ -6,14 +6,25 @@ import { signup, test } from "../api/backend";
 function Landing(props) {
     const [loading, setLoading] = useState(true);
     const [kp, setKP] = useState(null);
+    const authFx = async (pubkey, privKey) => {
+        const signupObj = await signup(pubkey, privKey);
+        if (true) { // user exists
+            //login, set token
+            //check for business
+            //if no business, send to add business
+            //if business, continue
+        } else { //new user
+            //set token
+            //send to add business
+        }
+    }
     const initLoginObj = async () => {
         try {
             await props.openlogin.init();
             const seed = Uint8Array.from(props.openlogin.privKey).slice(0, 32);
             const account = solanaWeb3.Keypair.fromSeed(seed);
             setKP(account)
-            // await signup(account.publicKey.toString(), account.secretKey.toString());
-            await test();
+            authFx(account.publicKey.toString(), account.secretKey.toString())
             setLoading(false);
         } catch (error) {
             console.error(error)

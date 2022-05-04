@@ -22,6 +22,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route exact path='/' element={<Login setLoggedIn={setLoggedIn} openlogin={openlogin} />} />
+            <Route exact path='/payroll' element={<Payroll />} />
           </Routes>
         </BrowserRouter>
       </div>
