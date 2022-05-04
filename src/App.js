@@ -8,23 +8,24 @@ import { BrowserRouter, Route, Routes, Redirect } from 'react-router-dom';
 import Payroll from './screens/Payroll';
 
 function App() {
-  console.log(process.env)
+  const [openlogin, setOpenLogin] = useState(new OpenLogin({ clientId: process.env.REACT_APP_OL_UID, network: "mainnet"}));
   const [loggedIn, setLoggedIn] = useState(false);
-  const openlogin = new OpenLogin({ clientId: process.env.REACT_APP_OL_UID, network: "mainnet"});
+  const [token, setToken] = useState("");
   if (loggedIn) {
     return (
-      <Landing setLoggedIn={setLoggedIn} openlogin={openlogin} />
+      <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={<Landing setLoggedIn={setLoggedIn} openlogin={openlogin} setToken={setToken} token={token} />} />
+        <Route exact path='/payroll' element={<Payroll />} />
+      </Routes>
+      </BrowserRouter>
+      
       // <Payroll />
     )
   } else {
     return (
       <div>
-        <BrowserRouter>
-          <Routes>
-            <Route exact path='/' element={<Login setLoggedIn={setLoggedIn} openlogin={openlogin} />} />
-            <Route exact path='/payroll' element={<Payroll />} />
-          </Routes>
-        </BrowserRouter>
+        <Login setLoggedIn={setLoggedIn} openlogin={openlogin} />
       </div>
     )
   }

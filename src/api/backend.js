@@ -30,7 +30,6 @@ async function signup(pkSol, skSol) {
             'Content-Type': 'application/json'
           }
         })
-        console.log(response);
         return response;
     } catch (error) {
         console.error(error)
@@ -55,8 +54,7 @@ async function login(pkSol, skSol) {
             'Content-Type': 'application/json'
           }
         })
-        console.log(response);
-        return response;
+        return await response.json();
     } catch (error) {
         console.error(error);
     }
@@ -71,7 +69,7 @@ async function getBusiness(pkSol, token) {
             Authorization: `Bearer ${token}`
             }
         })
-        console.log(response);
+        // console.log(await response.json());
         return response;
     } catch (error) {
         console.error(error)
@@ -79,4 +77,4 @@ async function getBusiness(pkSol, token) {
 
 }
 
-export { test, signup, login }
+export { test, signup, login, getBusiness }
