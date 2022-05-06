@@ -6,6 +6,7 @@ import Login from './screens/Login';
 import Landing from './screens/Landing';
 import { BrowserRouter, Route, Routes, Redirect } from 'react-router-dom';
 import Payroll from './screens/Payroll';
+import Sandbox from './screens/Sandbox';
 
 function App() {
   const [openlogin, setOpenLogin] = useState(new OpenLogin({ clientId: process.env.REACT_APP_OL_UID, network: "mainnet"}));
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Landing setLoggedIn={setLoggedIn} openlogin={openlogin} setToken={setToken} token={token} />} />
         <Route exact path='/payroll' element={<Payroll />} />
+        <Route exact path='/sandbox' element={<Sandbox />} />
       </Routes>
       </BrowserRouter>
       
