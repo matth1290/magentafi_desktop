@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as solanaWeb3 from '@solana/web3.js';
 import { login, signup, test, getBusiness } from "../api/backend";
+import {Link} from "react-router-dom";
 
 
 function Landing(props) {
@@ -34,6 +35,7 @@ function Landing(props) {
             const seed = Uint8Array.from(props.openlogin.privKey).slice(0, 32);
             const account = solanaWeb3.Keypair.fromSeed(seed);
             setKP(account)
+            props.setKey(account.publicKey);
             // authFx(account.publicKey.toString(), account.secretKey.toString())
             setLoading(false);
         } catch (error) {
@@ -60,6 +62,7 @@ function Landing(props) {
                 <p>{'priv key: ' + props.openlogin.privKey}</p>
                 <p>{'sol pub key: ' + kp.publicKey.toString()}</p>
                 <p>{'token: ' + props.token}</p>
+                <Link to="/sandbox">Sandbox</Link>
                 <button onClick={logoutFx}>Log out</button>
             </div> 
         )
