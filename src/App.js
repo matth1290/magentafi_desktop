@@ -24,6 +24,8 @@ function App() {
       
       // <Payroll />
       // <Landing setLoggedIn={setLoggedIn} openlogin={openlogin} />
+      // <Landing setLoggedIn={setLoggedIn} openlogin={openlogin} />
+      // <Payroll />
     )
   } else {
     return (

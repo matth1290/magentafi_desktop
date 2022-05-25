@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import Modal from 'react-modal';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+<<<<<<< HEAD
 import { StreamInitToken } from "../api/zebec";
+=======
+>>>>>>> 56f7b7a2cba5e49d60a206ec901daba2e612a4dd
 
 
 function Payroll(props) {
@@ -45,8 +48,11 @@ function Payroll(props) {
         //check if this is a valid amount
         setAmount(amount);
     }
+<<<<<<< HEAD
 
     
+=======
+>>>>>>> 56f7b7a2cba5e49d60a206ec901daba2e612a4dd
    
     return (
         <div>
