@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Modal from 'react-modal';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { StreamInitToken } from "../api/zebec";
 
 
 function Payroll(props) {
@@ -44,12 +45,15 @@ function Payroll(props) {
         //check if this is a valid amount
         setAmount(amount);
     }
+
+    
    
     return (
         <div>
             <h1>Payroll</h1>
-            <button onClick={openModal}>Add New Payment</button>
-            <Modal
+            {/* <button onClick={openModal}>Add New Payment</button> */}
+            <button onClick={StreamInitToken}>Add New Payment</button>
+            {/* <Modal
                 isOpen={modalIsOpen}
                 // onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
@@ -94,7 +98,7 @@ function Payroll(props) {
                     </label>
                 <input type="submit" value="Submit" onSubmit={submitForm}/> 
                 </form>
-          </Modal>
+          </Modal> */}
         </div>
     )
 }

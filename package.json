@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@toruslabs/openlogin": "^1.7.3",
     "@web3auth/web3auth": "^0.9.3",
+    "@zebec-protocol/stream": "^1.1.1",
     "buffer": "^6.0.3",
     "buffer-layout": "^1.2.2",
     "crypto-browserify": "^3.12.0",
