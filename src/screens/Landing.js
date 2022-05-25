@@ -63,6 +63,7 @@ function Landing(props) {
                 <p>{'sol pub key: ' + kp.publicKey.toString()}</p>
                 <p>{'token: ' + props.token}</p>
                 <Link to="/sandbox">Sandbox</Link>
+                <Link to="/funds">View Funds</Link>
                 <button onClick={logoutFx}>Log out</button>
             </div> 
         )
