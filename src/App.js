@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Landing setLoggedIn={setLoggedIn} openlogin={openlogin} setToken={setToken} token={token} setKey={setKey} />} />
         <Route exact path='/payroll' element={<Payroll />} />
-        <Route exact path='/sandbox' element={<Sandbox keyprop={key} />} />
+        <Route exact path='/sandbox' element={<Sandbox keyprop={key} privKey={openlogin.privKey}/>} />
       </Routes>
       </BrowserRouter>
       

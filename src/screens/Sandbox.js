@@ -1,5 +1,6 @@
 import { NativeStream, TokenStream } from "@zebec-protocol/stream";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { MangetaWallet } from "../solana/wallet";
 
 import { 
     Connection, 
@@ -18,15 +19,21 @@ import {
     devnet: { url: clusterApiUrl("devnet"), displayName: "Devnet" },
     testnet: { url: clusterApiUrl("testnet"), displayName: "Testnet" },
   };
+
   
   const solanaNetwork = networks.devnet;
   const connection = new Connection(solanaNetwork.url);
 
-export default function Sandbox(props) {
-    // const { connection } = useConnection();
-    // const { adapter } = useWallet();
-    const token = new TokenStream(props.keyprop, connection.rpcEndpoint);
-    console.log(props.keyprop);
+export default async function Sandbox(props) {
+  console.log(props.privKey);
+    const wallet = await MangetaWallet(props.privKey)
+    // const token = new TokenStream(props.keyprop, connection.rpcEndpoint);
+    console.log(wallet);
+    // const response = await token.deposit({
+    //   sender: 'EYktpd4zx3NJqVSDEKR3eem2zWS7EPqbjGkAVWckvMck', //signer
+    //   amount: 0.5,
+    // })
+    // console.log(response)
 
     const depositfx = async (stream) => {
         const response = await token.deposit({
